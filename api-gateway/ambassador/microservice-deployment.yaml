@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: microservice-deployment
+  template:
+    metadata:
+      labels:
+        app: microservice-deployment
+    spec:
+      containers:
+      - name: microservice-application
+        image: mcicolella/microservice-demo
+        ports:
+          - containerPort: 8080
+
